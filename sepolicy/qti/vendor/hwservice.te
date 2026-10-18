@@ -20,3 +20,6 @@ type vendor_hal_osense_hwservice, hwservice_manager_type, protected_hwservice;
 
 # Sensors
 type vendor_hal_oplus_sensor_hwservice, hwservice_manager_type, protected_hwservice;
+
+# Cryptoeng
+type hal_cryptoeng_hwservice, hwservice_manager_type, protected_hwservice;
