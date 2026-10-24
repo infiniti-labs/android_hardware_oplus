@@ -5,22 +5,15 @@
 
 cc_library_static {
     name: "power-ext-oplus",
-    defaults: ["android.hardware.power-ndk_shared"],
     vendor: true,
     srcs: [
         "power-mode.cpp",
     ],
-    cppflags: select(soong_config_variable("power_libperfmgr", "mode_extension_lib"), {
-        any: ["-DLIBPERFMGR_EXT"],
-        default: [],
-    }) + select(soong_config_variable("qtipower", "tap_to_wake_node"), {
-        any: ["-DTAP_TO_WAKE_NODE"],
-        default: [],
-    }),
     header_libs: [
         "vendor.oplus.hardware.touch-headers",
     ],
     shared_libs: [
+        "android.hardware.power-V6-ndk",
         "libbase",
     ],
     whole_static_libs: [
