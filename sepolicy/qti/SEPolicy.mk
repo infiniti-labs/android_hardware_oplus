@@ -4,7 +4,15 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-SEPOLICY_PLATFORM := $(subst device/qcom/sepolicy_vndr/,,$(SEPOLICY_PATH))
+ifneq (,$(filter 4.9 4.14 4.19,$(TARGET_KERNEL_VERSION)))
+SEPOLICY_PLATFORM := legacy-um
+else ifeq ($(TARGET_BOARD_PLATFORM),taro)
+SEPOLICY_PLATFORM := sm8450
+else ifeq ($(TARGET_BOARD_PLATFORM),kalama)
+SEPOLICY_PLATFORM := sm8550
+else
+SEPOLICY_PLATFORM := $(TARGET_BOARD_PLATFORM)
+endif
 
 BOARD_VENDOR_SEPOLICY_DIRS += \
     hardware/oplus/sepolicy/qti/vendor \
@@ -28,5 +36,3 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
     hardware/oplus/sepolicy/qti/public/common-um
 endif
-
-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
