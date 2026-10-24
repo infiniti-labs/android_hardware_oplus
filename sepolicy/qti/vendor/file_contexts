@@ -1,5 +1,4 @@
 # Alert Slider
-/vendor/bin/tri-state-key-calibrate    u:object_r:tri-state-key-calibrate_exec:s0
 
 # Audio Amplifier
 /dev/aw882xx_smartpa    u:object_r:oplus_awsmartpa_device:s0
