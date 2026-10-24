@@ -1,0 +1,17 @@
+//
+// SPDX-FileCopyrightText: Paranoid Android
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_static {
+    name: "libpowerfeature_ext_oplus",
+    vendor: true,
+    srcs: ["power-feature.cpp"],
+    header_libs: ["vendor.oplus.hardware.touch-headers"],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "vendor.aospa.power-V1-ndk",
+    ],
+    whole_static_libs: ["vendor.oplus.hardware.touch-V2-ndk"],
+}
